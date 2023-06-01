@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Cú pháp hàm
+        /*
+            function [functionName] (param1,param2,...,paramN){
+                Block Statetments;
+            }
+        */
+        // Gọi hàm
+        let hel = hello();
+        console.log(hello());
+        //Xây dựng hàm thực hiện chức năng in ra console câu xin chào các bạn
+        function hello() {
+            console.log("Xin chào các bạn");
+        }
+        // Xây dựng hàm thực hiện chức năng in ra console câu xin chào bạn abc (abc được truyền vào)
+        function helloStudent(studentName) {
+            console.log("Xin chào bạn sinh viên ", studentName);
+        }
+        helloStudent("Nguyễn Văn A");
+        // Xây dựng hàm tính tổng 2 số và trả ra tổng 2 số
+        function add(number1, number2) {
+            let sum = number1 + number2;
+            return sum;
+        }
+        let total = add(5, 7);//total = 12
+        console.log("Tổng 2 số là: ", total);
+        function test() {
+            console.log(total);
+        }
+        // Phạm vi biến: global, function        
+        // Restparameter - Tham số còn lại
+        function addNumbers(number1, number2, ...numbers) {
+            let total = number1 + number2;
+            for (let index = 0; index < numbers.length; index++) {
+                total += numbers[index];
+            }
+            return total;
+        }
+        console.log("Tổng 2 số là: ", addNumbers(1, 2));
+        console.log("Tổng 3 số là: ", addNumbers(1, 2, 3));
+        console.log("Tổng 4 số là: ", addNumbers(1, 2, 3, 4));
+        // Đối tượng arguments - là 1 mảng đại diện cho các tham số của hàm
+        function addNumbers2() {
+            let total = 0;
+            for (let index = 0; index < arguments.length; index++) {
+                total += arguments[index];
+            }
+            return total;
+        }
+        console.log("Tổng 5 số là: ", addNumbers2(1, 2, 3, 4, 5));
+        // Tham số và đối số: add --> Tham số: number1, number2, Đối số: 5,7
+        // Tham chiếu và tham trị
+        // Tham trị - Hàm in ra một giá trị
+        function printNumber(number) {
+            number++;
+            console.log("Giá trị của number trong hàm là: ", number);
+        }
+        let number = 10;
+        printNumber(number);
+        console.log("Giá trị của number sau khi gọi hàm là: ", number);
+        // Tham chiếu - làm việc với địa chỉ ở biến - In ra giá trị của một mảng
+        function printArray(arrNumbers) {
+            arrNumbers[0] = 100;
+            console.log("Mảng in trong hàm: ", arrNumbers);
+        }
+        let arrNumber = [3, 5, 7, 9];
+        printArray(arrNumber);
+        console.log("Mảng in sau khi gọi hàm: ", arrNumber);
+    </script>
+</body>
+
+</html>

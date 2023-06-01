@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Function</title>
+</head>
+
+<body>
+    <script>
+        // Callbackfunction
+        // Bất đồng bộ
+        console.log("Thực hiện công việc 1");
+        setTimeout(function () {
+            console.log("Kết thúc 10s timeout");
+        }, 10000);
+        console.log("Thực hiện công việc 2");
+        // Đồng bộ: callbackfunction
+        let func1 = function () {
+            console.log("Thực hiện công việc 4");
+        }
+        let func2 = function (callbackFunction) {
+            console.log("Thực hiện công việc 3");
+            setTimeout(() => {
+                console.log("Kết thúc 5s timeout");
+            }, 5000);
+            callbackFunction();
+        }
+        func2(func1);
+    </script>
+</body>
+
+</html>

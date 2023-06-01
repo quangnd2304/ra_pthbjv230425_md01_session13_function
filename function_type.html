@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Các loại function</title>
+</head>
+
+<body>
+    <script>
+        // Expression function - Biểu thức hàm
+        let add = function (number1, number2) {
+            return number1 + number2;
+        }
+        console.log("Tổng 2 số là: ", add(5, 7));
+        // IIFE function
+        (function (firstName, lastName) {
+            console.log("Hello", firstName, lastName);
+        })("Rikkei", "Academy")
+        // Arrow function: viết hàm in ra tên sinh viên
+        let printStudentName = (studentName) => {
+            console.log("Xin chào sinh viên", studentName);
+        }
+        printStudentName("Nguyễn Văn A");
+        // Arrow function: Tính tổng 2 số
+        // let sum = (number1,number2)=>{return number1+number2}
+        let sum = (number1, number2) => number1 + number2;
+        console.log("Tổng 2 số:", sum(10, 20));
+        // Hàm ẩn danh
+        // - setInterval(callbackFunction,miliseconds): In ra đồng hồ tính phút
+        let seconds = 0;
+        setInterval(function () {
+            // seconds++;
+            console.log("Xin chào các bạn");
+        }, 3000);
+        //  - setTimeout(callbackFunction,miliseconds): Dừng trong bao lâu
+        setTimeout(function () {
+            console.log("Dừng lại trong 3 giây");
+        }, 3000);
+        // Closures Function
+        function fatherFunction() {
+            let num = 0;
+            function childrenFunction() {
+                console.log("Giá trị num:", num);
+            }
+            num++;
+            return childrenFunction;
+        }
+        let number = fatherFunction();
+        number();
+
+    </script>
+</body>
+
+</html>
